@@ -761,7 +761,7 @@ section { padding: 100px 48px; position: relative; }
 /* Venue cards row */
 .venue-cards-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 28px;
   max-width: 1100px;
   margin: 0 auto 52px;
@@ -2373,6 +2373,8 @@ footer { background: var(--dark); color: white; text-align: center; padding: 70p
           <span class="venue-card-subtitle">Grand Wedding Venue · Gajraula</span>
           <p class="venue-card-desc">The crown jewel of the celebrations. With sweeping banquet lawns, regal interiors and impeccable hospitality, Highway Resort sets a majestic stage for the most sacred moment of our lives — the Wedding ceremony under a starlit sky.</p>
           <div class="venue-card-events">
+            <span class="venue-event-pill venue-event-pill-blush">🌿 Mehendi & 🎵 Sangeet  · 18 June, Evening</span>
+            <span class="venue-event-pill venue-event-pill-blush">🌼 Haldi · 19 June, Morning</span>
             <span class="venue-event-pill venue-event-pill-gold">💍 Wedding · 19 June, Evening</span>
           </div>
           <div class="venue-card-address">
@@ -2381,30 +2383,6 @@ footer { background: var(--dark); color: white; text-align: center; padding: 70p
           </div>
         </div>
       </div>
-
-      <!-- Card 2: Moga Punjabi — Secondary -->
-      <div class="venue-card venue-card-secondary">
-        <div class="venue-card-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5571.950276764787!2d78.25673980161154!3d28.83491899001176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390b74f332640277%3A0xb53ce9c1544072de!2sHighway%20Resort!5e0!3m2!1sen!2sin!4v1775819158354!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div class="venue-card-map-overlay"></div>
-        </div>
-        <div class="venue-card-body">
-          <span class="venue-card-icon">🌿</span>
-          <h3 class="venue-card-name">Highway Resort</h3>
-          <span class="venue-card-subtitle">Pre-Wedding Celebrations · Gajraula</span>
-          <p class="venue-card-desc">Where the festivities begin! Highway Resort hosts our vibrant pre-wedding ceremonies — from the colour-soaked Mehendi evening to the electrifying Sangeet night filled with dance, music, and memories for a lifetime.</p>
-          <div class="venue-card-events">
-            <span class="venue-event-pill venue-event-pill-blush">🌿 Mehendi & 🎵 Sangeet  · 18 June, Evening</span>
-            <span class="venue-event-pill venue-event-pill-gold">🌼 Haldi · 19 June, Morning</span>
-          </div>
-          <div class="venue-card-address">
-            <span class="venue-card-address-icon">📍</span>
-            <span>NH-9, Highway Resort, Gajraula, Amroha District, Uttar Pradesh — ~110 km from Delhi via NH-9</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
 
     <!-- Travel Strip -->
     <div class="venue-travel-strip fade-in">
@@ -2631,7 +2609,7 @@ footer { background: var(--dark); color: white; text-align: center; padding: 70p
       </g>
     </svg>
   </div>
-  <div class="footer-names">Gaurav &amp; Akansha</div>
+  <div class="footer-names">Akansha &amp; Gaurav</div>
   <div class="footer-date">19 · June · 2026 &nbsp;✦&nbsp; Gajraula, Uttar Pradesh</div>
   <p class="footer-quote">"Two souls, one sacred journey, blessed by love and tradition."</p>
   <div class="footer-divider"></div>
@@ -2646,7 +2624,7 @@ footer { background: var(--dark); color: white; text-align: center; padding: 70p
     <a href="#" class="social-link" title="Facebook">📘</a>
   </div>
   <div class="footer-devanagari">🙏 शुभ विवाह 🙏</div>
-  <div class="footer-bottom">&copy; 2026 Gaurav &amp; Akansha. Crafted with ♥ for the most beautiful day.</div>
+  <div class="footer-bottom">&copy; 2026 Akansha &amp; Gaurav. Crafted with ♥ for the most beautiful day.</div>
 </footer>
 <!-- ════ Floating music ════ -->
 <div class="music-float" onclick="toggleMusic()" title="Toggle ambient music"><span id="musicFloatIcon">🎵</span></div>
@@ -3109,7 +3087,7 @@ function submitRSVP(){
   btn.textContent='⌛  Sending...'; btn.classList.add('sending');
   const events=[...document.querySelectorAll('.event-cb-label.checked')].map(l=>l.textContent.replace('✓','').trim()).join(', ')||'TBD';
   const data={ name:nameEl.value.trim(), contact:document.getElementById('rsvpPhone').value, guests:document.getElementById('rsvpGuests').value, attendance:document.querySelector('input[name="attendance"]:checked')?.value, events, timestamp:new Date().toLocaleString('en-IN') };
-  const URL='https://script.google.com/macros/s/AKfycbzHZlu8Fo6OlyB2q4-oN6ccjyiHEt7j74GwVC4htpyMPbvQs_U7MJnznL2FzbHvSOIMVA/exec';
+  const URL='https://script.google.com/macros/s/AKfycbwUI3CkWoiCEddQ0REhpurw4y89S8IRU2xF0mYDRVTmdpqYamp4X24vztN4G75HjHlv/exec';
   if(URL) fetch(URL,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'text/plain;charset=utf-8'},redirect:'follow',mode:'cors'}).catch(()=>{});
   setTimeout(()=>{
     document.getElementById('rsvpForm').style.display='none';
@@ -3220,23 +3198,23 @@ function downloadAllICS() {
       uid: 'mehendi-sangeet-gaurav-akansha-2026@wedding',
       start: '20260618T143000Z',
       end:   '20260618T173000Z',
-      summary: 'Gaurav & Akansha Wedding — Mehendi & Sangeet',
-      location: 'Moga Punjabi Tadka\\, Gajraula\\, Amroha District\\, Uttar Pradesh',
+      summary: 'Akansha & Gaurav Wedding — Mehendi & Sangeet',
+      location: 'Highway Resort\\, NH-9\\, Gajraula\\, Amroha District\\, Uttar Pradesh',
       desc: 'An evening of colour\\, music and celebration. Traditional/Cocktail Attire.\\nWebsite: https://gaurav-akansha.netlify.app'
     },
     {
       uid: 'haldi-gaurav-akansha-2026@wedding',
       start: '20260619T033000Z',
       end:   '20260619T063000Z',
-      summary: 'Gaurav & Akansha Wedding — Haldi',
-      location: 'Moga Punjabi Tadka\\, Gajraula\\, Amroha District\\, Uttar Pradesh',
+      summary: 'Akansha & Gaurav Wedding — Haldi',
+      location: 'Highway Resort\\, NH-9\\, Gajraula\\, Amroha District\\, Uttar Pradesh',
       desc: 'The joyful Haldi ceremony. Traditional attire / old clothes recommended!\\nWebsite: https://gaurav-akansha.netlify.app'
     },
     {
       uid: 'wedding-ceremony-gaurav-akansha-2026@wedding',
       start: '20260619T143000Z',
       end:   '20260619T193000Z',
-      summary: 'Gaurav & Akansha — Wedding Ceremony 💍',
+      summary: 'Akansha & Gaurav — Wedding Ceremony 💍',
       location: 'Highway Resort\\, NH-9\\, Gajraula\\, Amroha District\\, Uttar Pradesh',
       desc: 'The main wedding ceremony at the auspicious muhurat. Traditional Indian Attire. Highway Resort\\, NH-9\\, Gajraula — ~110 km from Delhi.\\nWebsite: https://gaurav-akansha.netlify.app'
     }
